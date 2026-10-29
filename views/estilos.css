@@ -1,0 +1,40 @@
+.grid-container {
+/* Convierte el div en un contenedor grid */
+display: grid;
+/* Columna izquierda 1 parte, derecha 3 partes */
+grid-template-columns: 2fr 3fr;
+/* Fila de arriba auto, medio 1 parte, abajo auto */
+grid-template-rows: auto 1fr auto;
+/* Espacio de 10px entre celdas */
+gap: 10px;
+grid-template-areas:
+"header header"
+"sidebar content"
+/* Define áreas con nombres */
+"footer footer";
+height: 300px;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+}
+.grid-item {
+background-color: #e0f7fa;
+padding: 15px;
+border: 1px solid #00bcd4;
+text-align: center;
+}
+.header {
+grid-area: header;
+background-color: #b3e5fc;
+}
+.sidebar {
+grid-area: sidebar;
+background-color: #c8e6c9;
+}
+.content {
+grid-area: content;
+background-color: #ffccbc;
+}
+.footer {
+grid-area: footer;
+background-color: #ffe0b2;
+}

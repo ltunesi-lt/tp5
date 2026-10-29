@@ -1,0 +1,31 @@
+package views
+
+import db "tp5/DB/sqlc"
+
+templ IndexPage(titulo string, productos []db.Product) {
+	@Layout() {
+		<div>
+			<h1>{ titulo }</h1>
+			
+			<!-- Lista de productos existente -->
+			@ProductList(productos)
+
+			<hr style="margin: 20px 0;"/>
+
+			<h2>Agregar Nuevo Producto</h2>
+			<form action="/products" method="POST">
+				<div>
+					<label for="name">Nombre del producto:</label><br />
+					<input type="text" id="name" name="name" required />
+				</div>
+				<br />
+				<div>
+					<label for="price">Precio:</label><br />
+					<input type="number" step="0.01" id="price" name="price" required />
+				</div>
+				<br />
+				<button type="submit">Guardar Producto</button>
+			</form>
+		</div>
+	}
+}

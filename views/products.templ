@@ -1,0 +1,32 @@
+package views
+
+import (
+	"fmt"
+	db "tp5/DB/sqlc" 
+)
+
+templ ProductList(productos []db.Product) {
+	<div>
+		<h2>Lista de Productos</h2>
+		if len(productos) == 0 {
+			<p>No hay productos disponibles en este momento.</p>
+		} else {
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					for _, p := range productos {
+						<tr>
+							<td>{ p.Name }</td>
+							<td>{ fmt.Sprintf("$%.2f", p.Price) }</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		}
+	</div>
+}
